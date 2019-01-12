@@ -1,0 +1,40 @@
+{
+  "name": "projet-certif-promo4",
+  "version": "1.0.0",
+  "description": "projet pour le diplome de contrat de professionnalisation promo4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "serve": "nodemon index.js",
+    "mysql-start": "sudo docker-compose up",
+    "mysql-stop": "sudo docker-compose down ",
+    "mysql-connect": "sudo docker-compose exec db mysql -u alpha -p",
+    "bash": "sudo docker-compose exec db bash",
+    "migrate": "sequelize db:migrate",
+    "migrate:undo": "sequelize db:migrate:undo",
+    "seed": "sequelize db:seed:all",
+    "seed:undo": "sequelize db:seed:undo:all",
+    "doc": "documentation build index.js -f html -o docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dalphay/projet-certif-promo4.git"
+  },
+  "author": "alpha diallo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dalphay/projet-certif-promo4/issues"
+  },
+  "homepage": "https://github.com/dalphay/projet-certif-promo4#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-jwt": "^3.4.0",
+    "jsonwebtoken": "^8.3.0",
+    "mysql2": "^1.6.4",
+    "npm-package-seed": "^0.4.0",
+    "sequelize": "^4.41.2"
+  }
+}

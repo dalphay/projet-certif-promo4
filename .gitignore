@@ -1,0 +1,8 @@
+*.env
+docker-compose.yml
+node_modules
+package-lock.json
+dumps
+config.json
+Diagram_db_poc.mwb
+
