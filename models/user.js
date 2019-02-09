@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   User.associate = function(models) {
     // associations can be defined here
-    models.User.hasOne(models.ShoppingCart)
+    models.User.hasOne(models.ShoppingCart,)
   };
   return User;
 };

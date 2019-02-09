@@ -1,6 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const ShoppingCart = sequelize.define('ShoppingCart', {
+    id : {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     total: DataTypes.INTEGER,
     userId: DataTypes.INTEGER
   }, {});
@@ -9,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     models.ShoppingCart.belongsTo(models.User)
 
     /**ForeignKey ShoppingCart in Table ToBuy */
-    models.ShoppingCart.hasMany(models.Product,{through: {models:models.toBuy},foreignKey:'idShoppingCart'})
+    // models.ShoppingCart.hasMany(models.Product,{through: {models:models.toBuy},foreignKey:'idShoppingCart'})
   };
   return ShoppingCart;
 };

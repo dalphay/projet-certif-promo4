@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index.js",
+    "reset": "npm run migrate:undo && npm run migrate && npm run seed",
     "serve": "nodemon index.js",
     "mysql-start": "sudo docker-compose up",
     "mysql-stop": "sudo docker-compose down ",
@@ -15,7 +16,12 @@
     "migrate:undo": "sequelize db:migrate:undo",
     "seed": "sequelize db:seed:all",
     "seed:undo": "sequelize db:seed:undo:all",
-    "doc": "documentation build index.js -f html -o docs"
+    "doc": "documentation build index.js -f html -o docs",
+    "doc-generate": "documentation build index.js -f html -o docs",
+    "doc-browser": "npm run doc-generate && sensible-browser ./docs/index.html",
+    "backup": "sudo docker-compose exec db bash  -c 'mysqldump --user alpha -p my_eDatabase > \"/home/dumps/backup.$(date +\"%Y%m%d_%H%M%S\").sql\"'",
+    "restore": "sudo docker-compose exec db bash  -c 'mysql -u alpha -p my_eDatabase < /home/dumps/backup.20181130_111541.sql'"
+
   },
   "repository": {
     "type": "git",
@@ -30,11 +36,16 @@
   "dependencies": {
     "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "csurf": "^1.9.0",
+    "dotenv": "^6.1.0",
     "express": "^4.16.4",
     "express-jwt": "^3.4.0",
     "jsonwebtoken": "^8.3.0",
     "mysql2": "^1.6.4",
     "npm-package-seed": "^0.4.0",
-    "sequelize": "^4.41.2"
+    "random-sentence": "^1.0.4",
+    "sequelize": "^4.41.2",
+    "sequelize-cli": "^5.3.0"
   }
 }
