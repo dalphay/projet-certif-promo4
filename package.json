@@ -21,7 +21,6 @@
     "doc-browser": "npm run doc-generate && sensible-browser ./docs/index.html",
     "backup": "sudo docker-compose exec db bash  -c 'mysqldump --user alpha -p my_eDatabase > \"/home/dumps/backup.$(date +\"%Y%m%d_%H%M%S\").sql\"'",
     "restore": "sudo docker-compose exec db bash  -c 'mysql -u alpha -p my_eDatabase < /home/dumps/backup.20181130_111541.sql'"
-
   },
   "repository": {
     "type": "git",
