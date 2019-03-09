@@ -12,6 +12,7 @@ module.exports = {
         name: `Kevin Doquero ${i}`,
         email: `kevin.doque.${i}@yopmail.com`,
         password:  hashedPassword,
+        isAdmin: false,
         createdAt: new Date(),
         updatedAt: new Date(),
       })
@@ -22,6 +23,7 @@ module.exports = {
       name: 'admin',
       email: 'admin@yopmail.com',
       password: bcrypt.hashSync('admin', 12),
+      isAdmin: true,
       createdAt: new Date(),
       updatedAt: new Date(),
     })

@@ -1,6 +1,6 @@
 // imports
 var express = require("express");
-var config = require("../config/app");
+// var config = require("../config/app");
 var jwt = require('jsonwebtoken');
 
 /**
