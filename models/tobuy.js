@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const ToBuy = sequelize.define('ToBuy', {
-    total: DataTypes.INTEGER,
+    qty: DataTypes.INTEGER,
     idProduct: DataTypes.INTEGER,
     idShoppingCart: DataTypes.INTEGER
     
@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
 
 /*** a toBuyt corresponds to several produc **/
-    models.ToBuy.hasMany(models.ShoppingCart)
+    models.ToBuy.belongsToMany(models.ShoppingCart, {through: models.Product, foreignKey:'idTobuy',})
   };
   return ToBuy;
 };

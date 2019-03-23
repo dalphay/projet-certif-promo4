@@ -2,8 +2,8 @@ const models = require('../models');
 
 class TobuyController {
     static getAll(req, res){
-        models.Tobuy.findAll().then( Tobuy => {
-            res.send(Tobuys)
+        models.ToBuy.findAll().then( Tobuy => {
+            res.send(Tobuy)
         })
     }
 }

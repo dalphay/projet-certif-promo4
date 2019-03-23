@@ -7,6 +7,7 @@ var AuthController = require('./controller/authController')
 var authMiddleware = require('./middlewares/authMiddleware')
 var isAdminMiddleware = require('./middlewares/isAdminMiddleware')
 var UserController = require('./controller/userController')
+var accessMiddleware = require ('./middlewares/accessMiddleware')
 
 
 // var express = require('express');
@@ -26,15 +27,15 @@ router.get('/', function (req, res) {
 //root of connect to front-end
 // Users routes (CRUD)
 router.get('/products', authMiddleware,  isAdminMiddleware, ProductController.getAll);
-router.get('/users', authMiddleware,  isAdminMiddleware, ProductController.getAll);
+router.get('/users', authMiddleware,  isAdminMiddleware,  UserController.getAll);
 router.get('/shoppingCarts', authMiddleware,  isAdminMiddleware, ShoppingCartController.getAll);
-router.get('/tobuy', authMiddleware,  isAdminMiddleware, TobuyController.getAll);
+router.get('/tobuy', authMiddleware, TobuyController.getAll);
 
 
 // Users routes (CRUD)
 router.post("/users", authMiddleware, UserController.create); // C
 // router.get("/users", authMiddleware, UserController.index); // R
-router.get("/users/:id",authMiddleware,  UserController.show); // R
+router.get("/users/:id",authMiddleware, accessMiddleware,  UserController.getById); // R
 router.put("/users/:id", authMiddleware, UserController.update); // U
 router.delete("/users/:id", authMiddleware, UserController.delete); // D
 
@@ -47,6 +48,5 @@ router.put("/products/:id", authMiddleware, ProductController.update); // U
 router.delete("/products/:id", authMiddleware, ProductController.delete); // D
 
 
- 
 
 module.exports = router

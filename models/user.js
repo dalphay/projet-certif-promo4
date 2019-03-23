@@ -5,11 +5,12 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     isAdmin: DataTypes.BOOLEAN
+    
   }, {});
   User.associate = function(models) {
     // associations can be defined here
         
-      models.User.hasOne(models.ShoppingCart)
+      models.User.hasOne(models.ShoppingCart, {foreingKey: 'userId', foreingKeyConstraint: false ,onDelete: 'CASCADE'})
   };
   return User;
 };

@@ -11,10 +11,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   ShoppingCart.associate = function(models) {
     // associations can be defined here
-    models.ShoppingCart.belongsTo(models.User)
+    models.ShoppingCart.belongsTo(models.User, {foreignKey: 'userId'})
 
     /**ForeignKey ShoppingCart in Table ToBuy */
-    // models.ShoppingCart.hasMany(models.Product,{through: {models:models.toBuy},foreignKey:'idShoppingCart'})
+    models.ShoppingCart.hasMany(models.Product, {foreignKey:'idShoppingCart', targetKey:'idShoppingCart', onDelete: 'CASCADE'});
+    ShoppingCart.hasMany(models.ToBuy,{as: 'addToBuys',foreignKey: "idShoppingCart",targetKey: 'idShoppingCart',onDelete: 'CASCADE'});
   };
   return ShoppingCart;
 };
