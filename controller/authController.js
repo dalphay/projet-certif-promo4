@@ -93,7 +93,6 @@ class AuthController {
           'error': 'unable to verify user'
         })
     })
-
   }
 
   /**

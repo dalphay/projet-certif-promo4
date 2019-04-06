@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
 
     /**ForeignKey id_Product in table ToBuy*/
-    Product.belongsToMany(models.ShoppingCart, {as: 'tobuy', through: models.ToBuy, foreignKey:'idShoppingCart', otherKey:'idProduct', onDelete: 'CASCADE'})
+    Product.belongsToMany(models.ShoppingCart, {as: 'tobuy', through: models.ToBuy, foreignKey:'idProduct', otherKey:'id', onDelete: 'CASCADE'})
 
   };
   return Product;

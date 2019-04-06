@@ -5,4 +5,6 @@ package-lock.json
 dumps
 config.js
 Diagram_db_poc.mwb
+localhost.cert
+localhost.key
 

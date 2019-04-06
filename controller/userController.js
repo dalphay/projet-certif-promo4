@@ -6,6 +6,7 @@ class UserController {
             res.send(users)
         })
     }
+    
     static getById(req, res) {
         models.User.findByPk(req.params.id).then(user => {
             models.ShoppingCart.findOne( {where: {

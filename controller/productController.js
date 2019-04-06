@@ -1,11 +1,19 @@
 const models = require('../models');
 
 class ProductController {
+    /**Method for get all products */
     static getAll(req, res){
         models.Product.findAll().then( Products => {
             res.send(Products)
         })
     }
+        /**Method to get a product by its id*/
+    static getById(req, res){
+        models.Product.findAll().then( Products => {
+            res.send(Products)
+        })
+    }
+
     static create(req, res){
         res.send('is ok')
     }

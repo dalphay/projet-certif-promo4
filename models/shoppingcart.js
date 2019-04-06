@@ -14,8 +14,8 @@ module.exports = (sequelize, DataTypes) => {
     models.ShoppingCart.belongsTo(models.User, {foreignKey: 'userId'})
 
     /**ForeignKey ShoppingCart in Table ToBuy */
-    models.ShoppingCart.hasMany(models.Product, {foreignKey:'idShoppingCart', targetKey:'idShoppingCart', onDelete: 'CASCADE'});
-    ShoppingCart.hasMany(models.ToBuy,{as: 'addToBuys',foreignKey: "idShoppingCart",targetKey: 'idShoppingCart',onDelete: 'CASCADE'});
+    models.ShoppingCart.hasMany(models.Product, {foreignKey:'id', targetKey:'idProduct', onDelete: 'CASCADE'});
+    ShoppingCart.hasMany(models.ToBuy,{as: 'addToBuys', foreignKey: "idShoppingCart", targetKey: 'id',onDelete: 'CASCADE'});
   };
   return ShoppingCart;
 };
