@@ -48,3 +48,15 @@
     "sequelize-cli": "^5.3.0"
   }
 }
+
+/**
+utiliser les npm scripts.
+On veut que : 
+
+npm start lance le serveur express (avec nodemon)
+npm run mysql-start lance MySql (le container docker)
+npm run mysql-stop stoppe MySql (le container docker)
+npm run mysql-connect se connecte au MySql du container docker
+npm run bash lance le terminal dans docker
+*/
+
